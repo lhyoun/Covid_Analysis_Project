@@ -24,7 +24,7 @@ export default [
     _children: [
       {
         _tag: 'CSidebarNavItem',
-        name: '부산 실시간 재난문자 ',
+        name: '실시간 재난문자 ',
         to: '/buttons/buttons',
       },
       {

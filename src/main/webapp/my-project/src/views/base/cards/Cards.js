@@ -76,6 +76,7 @@ const Cards = () => {
             </CCardBody>
           </CCard>
         </CCol>
+
         <CCol xs="12" sm="6" md="4">
           <CCard>
             <CCardHeader>
@@ -91,6 +92,7 @@ const Cards = () => {
             </CCardBody>
           </CCard>
         </CCol>
+        
         <CCol xs="12" sm="6" md="4">
           <CCard>
             <CCardHeader>
@@ -379,6 +381,7 @@ const Cards = () => {
             </CCardBody>
           </CCard>
         </CCol>
+
         <CCol xs="12" sm="6" md="4">
           <CFade in={showCard}>
             <CCard>
@@ -406,6 +409,7 @@ const Cards = () => {
             </CCard>
           </CFade>
         </CCol>
+
       </CRow>
     </>
   )
