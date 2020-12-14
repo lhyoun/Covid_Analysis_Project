@@ -24,7 +24,7 @@ export default [
   },
     {
       _tag: 'CSidebarNavItem',
-      name: '국내 코로나 데이터',
+      name: '국내 코로나 실황',
       to: '/buttons/button-groups',
       icon: 'cil-puzzle'
     },
@@ -57,7 +57,7 @@ export default [
 
   {
     _tag: 'CSidebarNavTitle',
-    _children: ['마이페이지']
+    _children: ['서비스']
   },
     {
       _tag: 'CSidebarNavItem',
