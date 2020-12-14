@@ -14,35 +14,64 @@ export default [
   },
   {
     _tag: 'CSidebarNavTitle',
-    _children: ['Theme']
+    _children: ['국내']
   },
   {
-    _tag: 'CSidebarNavDropdown',
-    name: '코로나 실황  ',
-    route: '/buttons',
+    _tag: 'CSidebarNavItem',
+    name: '실시간 재난문자 ',
+    to: '/buttons/buttons',
     icon: 'cil-cursor',
-    _children: [
-      {
-        _tag: 'CSidebarNavItem',
-        name: '실시간 재난문자 ',
-        to: '/buttons/buttons',
-      },
+  },
+     
       {
         _tag: 'CSidebarNavItem',
         name: '확진자 이동경로 ',
         to: '/buttons/brand-buttons',
+        icon: 'cil-pencil',
       },
       {
         _tag: 'CSidebarNavItem',
         name: '부산 코로나 데이터',
         to: '/buttons/button-groups',
+        icon: 'cil-puzzle'
       },
       
-    ],
-  },
+      {
+        _tag: 'CSidebarNavTitle',
+        _children: ['세계']
+      },
   {
     _tag: 'CSidebarNavItem',
     name: '세계 코로나 실황',
+    to: '/theme/typography',
+    icon: 'cil-pencil',
+  },
+
+  {
+    _tag: 'CSidebarNavTitle',
+    _children: ['마이페이지']
+  },
+
+
+  {
+    _tag: 'CSidebarNavItem',
+    name: '확진자 발생까지 거리 ',
+    to: '/theme/typography',
+    icon: 'cil-pencil',
+  },
+
+
+  {
+    _tag: 'CSidebarNavItem',
+    name: '코로나 안전도 보기 ',
+    to: '/theme/typography',
+    icon: 'cil-pencil',
+  },
+
+
+  {
+    _tag: 'CSidebarNavItem',
+    name: '내 주위 재난문자 모아보기 ',
     to: '/theme/typography',
     icon: 'cil-pencil',
   },
