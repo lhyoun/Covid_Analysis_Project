@@ -14,8 +14,8 @@ import JumbotronMap from 'src/views/base/jumbotrons/JumbotronMap'
 const BrandButtons = () => {
   return (
     <>
-    <JumbotronMap></JumbotronMap>
       <Route_Busan></Route_Busan>
+      <JumbotronMap></JumbotronMap>
     </>
   )
 }

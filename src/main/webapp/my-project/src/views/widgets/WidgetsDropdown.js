@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   CWidgetDropdown,
   CRow,
@@ -14,18 +14,35 @@ import ChartBarSimple from '../charts/ChartBarSimple'
 
 const WidgetsDropdown = () => {
   // render
+  const [data1, setData1] = React.useState(1030);
 
-  const [data, setData] = React.useState(1);
+  const [data, setData] = React.useState([{'cases':0},{'cases':0},{'cases':0},
+    {'cases':0},{'cases':0},{'cases':0},
+    {'cases':0},{'cases':0},{'cases':0},
+    {'cases':0},{'cases':0},{'cases':0}]);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/korea", {
+      method: "get",
+    }).then((res) => res.json())
+    .then((res) => {
+      console.log("korea allData [json type]", res);
+      setData(res);
+    });
+  }, []);
 
   return (
     <CRow>
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-danger"
-          header={data}
+          header={data1}
           text="일별 확진자"
           footerSlot={
-            <ChartBarSimple
+            <ChartBarSimple dataPoints={[data[0].cases, data[1].cases, data[2].cases,
+              data[3].cases, data[4].cases, data[5].cases,
+              data[6].cases, data[7].cases, data[8].cases,
+              data[9].cases, data[10].cases, data[11].cases]}
               className="mt-3 mx-3"
               style={{height: '70px'}}
               backgroundColor="rgb(250, 152, 152)"

@@ -17,16 +17,15 @@ const JumbotronMap = () => {
 
   return (
     <>
-     
       <CRow>
         <CCol>
           <CCard>
             <CCardHeader>
-              Embed
+              Corona Map
             </CCardHeader>
             <CCardBody>
               <CEmbed>
-                <CEmbedItem src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"/>
+                {/* <CEmbedItem src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"/> */}
                 <CEmbedItem src="covidmap.html"/>
               </CEmbed>
             </CCardBody>

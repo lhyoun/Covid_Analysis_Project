@@ -87,7 +87,36 @@ const Route_Busan = () => {
                 <Col md={6}>
                     <CCard>
                         <CCardHeader>
-                        Pie Chart
+                            시구군
+                        </CCardHeader>
+                        <CCardBody>
+                        <CChartPie
+                            datasets={[
+                            {
+                                backgroundColor: [
+                                '#41B883',
+                                '#E46651',
+                                '#00D8FF',
+                                '#DD1B16'
+                                ],
+                                data: [40, 20, 80, 10]
+                            }
+                            ]}
+                            labels={['VueJs', 'EmberJs', 'ReactJs', 'AngularJs']}
+                            options={{
+                            tooltips: {
+                                enabled: true
+                            }
+                            }}
+                        />
+                        </CCardBody>
+                    </CCard>
+                </Col>  
+
+                <Col md={6}>
+                    <CCard>
+                        <CCardHeader>
+                            장소
                         </CCardHeader>
                         <CCardBody>
                         <CChartPie

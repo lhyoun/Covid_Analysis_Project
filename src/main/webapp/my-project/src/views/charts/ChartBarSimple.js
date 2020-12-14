@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { getColor } from '@coreui/utils'
 import { CChartBar } from '@coreui/react-chartjs'
 
 const ChartBarSimple = props => {
+
+
+
 
   const {
     backgroundColor,

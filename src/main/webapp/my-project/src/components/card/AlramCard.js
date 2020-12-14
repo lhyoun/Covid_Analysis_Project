@@ -1,4 +1,4 @@
-import { CBadge, CCard, CCardBody, CCardHeader } from '@coreui/react';
+import { CBadge, CCard, CCardBody, CCardHeader, CDropdown, CDropdownItem, CDropdownMenu, CDropdownToggle } from '@coreui/react';
 import React, { useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
@@ -19,7 +19,24 @@ const AlramCard = () => {
 
 
     return (
-        <Row> 
+        <Row>
+            <Col md={12}>  
+                <CDropdown className="m-1">
+                    <CDropdownToggle color="secondary" size="sm">
+                        지역 선택
+                    </CDropdownToggle>
+                    <CDropdownMenu>
+                        {/* <CDropdownItem header>Header</CDropdownItem> */}
+                        {/* <CDropdownItem disabled>Action Disabled</CDropdownItem> */}
+                        <CDropdownItem>부산</CDropdownItem>
+                        {/* <CDropdownDivider />
+                        <CDropdownItem>Another Action</CDropdownItem> */}
+                    </CDropdownMenu>
+                </CDropdown>
+            </Col>        
+            <Col md={12}>
+                <br/>
+            </Col>
             {covidAlarm.map(
             (res) => (
                 <Col md={3}>  
