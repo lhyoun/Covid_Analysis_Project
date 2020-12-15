@@ -1,9 +1,19 @@
 package com.project.MatchingPro.domain.CovidRoute;
 
+import java.io.IOException;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.google.code.geocoder.Geocoder;
+import com.google.code.geocoder.GeocoderRequestBuilder;
+import com.google.code.geocoder.model.GeocodeResponse;
+import com.google.code.geocoder.model.GeocoderRequest;
+import com.google.code.geocoder.model.GeocoderResult;
+import com.google.code.geocoder.model.GeocoderStatus;
+import com.google.code.geocoder.model.LatLng;
 
 import lombok.Data;
 
@@ -21,6 +31,7 @@ public class CovidRoute {
 	private String address;			// 부전동 12번길
 	private String exposed_time;	// 12월 12일 15시 방문
 	private String sanitized;		// 소독여부
+	
 }
 
 // 확진자 이동경로 페이지 내용

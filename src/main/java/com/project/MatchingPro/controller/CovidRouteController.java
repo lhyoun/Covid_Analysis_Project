@@ -2,6 +2,10 @@ package com.project.MatchingPro.controller;
 
 import java.util.List;
 
+import org.python.core.PyFunction;
+import org.python.core.PyInteger;
+import org.python.core.PyObject;
+import org.python.util.PythonInterpreter;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +19,23 @@ import lombok.RequiredArgsConstructor;
 public class CovidRouteController {
 
 	private final CovidRouteRepository CovidRouteRepository;
+	
+	private static PythonInterpreter intPre;
+
+	@GetMapping("/aaa")
+    public String getTest() {
+		PythonInterpreter intPre = new PythonInterpreter();
+        //intPre.execfile("src/main/clt/test.py");
+        //intPre.exec("print(testFunc(5,10))");
+
+        //PyFunction pyFuntion = (PyFunction) intPre.get("testFunc", PyFunction.class);
+        //int a = 10, b = 20;
+        //PyObject pyobj = pyFuntion.__call__(new PyInteger(a), new PyInteger(b));
+        //System.out.println(pyobj.toString());
+        return "ss";
+        //return pyobj.toString();
+    }
+
 	
 	// 이동경로 내용 전체 return
 	@GetMapping("/CovidRoute")
