@@ -19,18 +19,38 @@ import {
   } from '@coreui/react-chartjs'
 
 const Route_Busan = () => {
-
+    // 부산 전체 이동경로 포함된 확진정보
     const [data, setData] = React.useState([{}]);
+    // 확진 장소 타입(음식점, 학원) 별 count
+    const [data2, setData2] = React.useState([{'sanitized':0},{'sanitized':0},{'sanitized':0},{'sanitized':0},{'sanitized':0}]);
+    // 확진 장소 시도군(진구, 사하구) 별 count
+    const [data3, setData3] = React.useState([{'sanitized':0},{'sanitized':0},{'sanitized':0},{'sanitized':0},{'sanitized':0}]);
 
     useEffect(() => {
         // tab1 - 실시간 확진 data
         fetch("http://localhost:8000/CovidRoute", {
-        method: "get",
-        }).then((res) => res.json())
-        .then((res) => {
-        console.log("지역별 확진 정보 - Route_Busan.js - fetch all res -", res);
-        setData(res);
+            method: "get",
+            }).then((res) => res.json())
+            .then((res) => {
+            console.log("확진자 이동경로 탭 - Route_Busan.js - fetch all res -", res);
+            setData(res);
         });
+
+        fetch("http://localhost:8000/CovidRoute/type", {
+            method: "get",
+            }).then((res) => res.json())
+            .then((res) => {
+            console.log("확진자 이동경로 탭 - Route_Busan.js - fetch all res -", res);
+            setData2(res);
+        });
+
+        fetch("http://localhost:8000/CovidRoute/region", {
+            method: "get",
+            }).then((res) => res.json())
+            .then((res) => {
+            console.log("확진자 이동경로 탭 - Route_Busan.js - fetch all res -", res);
+            setData3(res);
+            });
     }, []);
 
     const getBadge = sanitized => {
@@ -87,7 +107,7 @@ const Route_Busan = () => {
                 <Col md={6}>
                     <CCard>
                         <CCardHeader>
-                            시구군
+                            장소
                         </CCardHeader>
                         <CCardBody>
                         <CChartPie
@@ -99,10 +119,10 @@ const Route_Busan = () => {
                                 '#00D8FF',
                                 '#DD1B16'
                                 ],
-                                data: [40, 20, 80, 10]
+                                data: [data2[0].sanitized, data2[1].sanitized, data2[2].sanitized, data2[3].sanitized, data2[4].sanitized]
                             }
                             ]}
-                            labels={['VueJs', 'EmberJs', 'ReactJs', 'AngularJs']}
+                            labels={[data2[0].location_type, data2[1].location_type, data2[2].location_type, data2[3].location_type, data2[4].location_type]}
                             options={{
                             tooltips: {
                                 enabled: true
@@ -116,7 +136,7 @@ const Route_Busan = () => {
                 <Col md={6}>
                     <CCard>
                         <CCardHeader>
-                            장소
+                            시도군
                         </CCardHeader>
                         <CCardBody>
                         <CChartPie
@@ -128,10 +148,10 @@ const Route_Busan = () => {
                                 '#00D8FF',
                                 '#DD1B16'
                                 ],
-                                data: [40, 20, 80, 10]
+                                data: [data3[0].sanitized, data3[1].sanitized, data3[2].sanitized, data3[3].sanitized, data3[4].sanitized]
                             }
                             ]}
-                            labels={['VueJs', 'EmberJs', 'ReactJs', 'AngularJs']}
+                            labels={[data3[0].district, data3[1].district, data3[2].district, data3[3].district, data3[4].district]}
                             options={{
                             tooltips: {
                                 enabled: true

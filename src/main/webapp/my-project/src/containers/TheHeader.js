@@ -54,51 +54,74 @@ const TheHeader = () => {
       </CHeaderBrand>
 
       <CHeaderNav className="d-md-down-none mr-auto">
-        <CHeaderNavItem className="px-3" >
+        {/* <CHeaderNavItem className="px-3" >
           <CHeaderNavLink to="/dashboard">MainPage</CHeaderNavLink>
-        </CHeaderNavItem>
+        </CHeaderNavItem> */}
         <CHeaderNavItem  className="px-3">
-          <CHeaderNavLink to="/users">Users</CHeaderNavLink>
+          <CHeaderNavLink to="/dashboard">CORONA MASTER</CHeaderNavLink>
         </CHeaderNavItem>
+        {/* <CHeaderNavItem className="px-3">
+          <CHeaderNavLink>Settings</CHeaderNavLink>
+        </CHeaderNavItem> */}
+      </CHeaderNav>
+
+      {/* 우측 상단 알림 */}
+      <CHeaderNav className="px-3">
         <CHeaderNavItem  className="px-3">
           <CHeaderNavLink to="/login">로그인</CHeaderNavLink>
         </CHeaderNavItem>
+
         <CHeaderNavItem  className="px-3">
           <CHeaderNavLink to="/register">회원가입</CHeaderNavLink>
         </CHeaderNavItem>
-        <CHeaderNavItem className="px-3">
-          <CHeaderNavLink>Settings</CHeaderNavLink>
-        </CHeaderNavItem>
-      </CHeaderNav>
 
-      <CHeaderNav className="px-3">
         <TheHeaderDropdownNotif/>
         <TheHeaderDropdownTasks/>
         <TheHeaderDropdownMssg/>
-        <TheHeaderDropdown/>
+        {/* <TheHeaderDropdown/> */}
       </CHeaderNav>
+      
 
       <CSubheader className="px-3 justify-content-between">
-        <CBreadcrumbRouter 
+        {/* <CBreadcrumbRouter 
           className="border-0 c-subheader-nav m-0 px-0 px-md-3" 
           routes={routes} 
-        />
+        /> */}
           <div className="d-md-down-none mfe-2 c-subheader-nav">
-            <CLink className="c-subheader-nav-link"href="#">
+            {/* <CLink className="c-subheader-nav-link"href="#">
               <CIcon name="cil-speech" alt="Settings" />
-            </CLink>
+            </CLink> */}
+
             <CLink 
               className="c-subheader-nav-link" 
               aria-current="page" 
               to="/dashboard"
             >
-              <CIcon name="cil-graph" alt="Dashboard" />&nbsp;Dashboard
+              <CIcon name="cil-speedometer" alt="Dashboard" />&nbsp;MainPage
             </CLink>
-            <CLink className="c-subheader-nav-link" href="#">
+
+            <CLink 
+              className="c-subheader-nav-link" 
+              aria-current="page" 
+              to="/dashboard"
+            >
+              <CIcon name="cil-puzzle" alt="Dashboard" />&nbsp;Korea-Covid
+            </CLink>
+
+            <CLink 
+              className="c-subheader-nav-link" 
+              aria-current="page" 
+              to="/dashboard"
+            >
+              <CIcon name="cil-globe-alt" alt="Dashboard" />&nbsp;Global-Covid
+            </CLink>
+
+            {/* <CLink className="c-subheader-nav-link" href="#">
               <CIcon name="cil-settings" alt="Settings" />&nbsp;Settings
-            </CLink>
+            </CLink> */}
           </div>
       </CSubheader>
+      
     </CHeader>
   )
 }
