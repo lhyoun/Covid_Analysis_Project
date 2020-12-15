@@ -57,11 +57,16 @@ const TheHeader = () => {
         {/* <CHeaderNavItem className="px-3" >
           <CHeaderNavLink to="/dashboard">MainPage</CHeaderNavLink>
         </CHeaderNavItem> */}
-
         <CHeaderNavItem  className="px-3">
-          <CHeaderNavLink to="/users">Users</CHeaderNavLink>
+          <CHeaderNavLink to="/dashboard">CORONA MASTER</CHeaderNavLink>
         </CHeaderNavItem>
-        
+        {/* <CHeaderNavItem className="px-3">
+          <CHeaderNavLink>Settings</CHeaderNavLink>
+        </CHeaderNavItem> */}
+      </CHeaderNav>
+
+      {/* 우측 상단 알림 */}
+      <CHeaderNav className="px-3">
         <CHeaderNavItem  className="px-3">
           <CHeaderNavLink to="/login">로그인</CHeaderNavLink>
         </CHeaderNavItem>
@@ -70,13 +75,6 @@ const TheHeader = () => {
           <CHeaderNavLink to="/register">회원가입</CHeaderNavLink>
         </CHeaderNavItem>
 
-        {/* <CHeaderNavItem className="px-3">
-          <CHeaderNavLink>Settings</CHeaderNavLink>
-        </CHeaderNavItem> */}
-      </CHeaderNav>
-
-      {/* 우측 상단 알림 */}
-      <CHeaderNav className="px-3">
         <TheHeaderDropdownNotif/>
         <TheHeaderDropdownTasks/>
         <TheHeaderDropdownMssg/>
