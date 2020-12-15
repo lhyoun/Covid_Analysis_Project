@@ -62,19 +62,19 @@ export default [
     {
       _tag: 'CSidebarNavItem',
       name: '확진자 발생까지 거리 ',
-      to: '/theme/typography',
+      to: '/base/breadcrumbs',
       icon: 'cil-puzzle',
     },
     {
       _tag: 'CSidebarNavItem',
       name: '코로나 안전도 보기 ',
-      to: '/theme/typography',
+      to: '/base/cards',
       icon: 'cil-magnifying-glass',
     },
     {
       _tag: 'CSidebarNavItem',
       name: '내 주위 재난문자 모아보기 ',
-      to: '/theme/typography',
+      to: '/base/carousels',
       icon: 'cil-bell',
     },
 ]
