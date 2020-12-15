@@ -49,10 +49,17 @@ export default [
   },
     {
       _tag: 'CSidebarNavItem',
-      name: '세계 코로나 실황',
-      to: '/theme/typography',
+      name: '세계 전체 데이터',
+      to: '/charts',
       icon: 'cil-globe-alt',
     },
+    {
+      _tag: 'CSidebarNavItem',
+      name: '국가별 데이터 비교해보기',
+      to: '/charts',
+      icon: 'cil-globe-alt',
+    },
+
 
 
   {
