@@ -50,7 +50,7 @@ export default [
     {
       _tag: 'CSidebarNavItem',
       name: '세계 전체 데이터',
-      to: '/charts',
+      to: '/base/tables',
       icon: 'cil-globe-alt',
     },
     {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import {
   CCard,
   CCardBody,
@@ -16,7 +16,37 @@ import {
 import { DocsLink } from 'src/reusable'
 
 const Charts = () => {
+  const [data, setData] = React.useState([
+    {'country':0, 'new_deaths_per_million':0,'new_tests_per_thousand':0},
+    {'country':0, 'new_deaths_per_million':0,'new_tests_per_thousand':0},
+    {'country':0, 'new_deaths_per_million':0,'new_tests_per_thousand':0},
+    {'country':0, 'new_deaths_per_million':0,'new_tests_per_thousand':0},
+    {'country':0, 'new_deaths_per_million':0,'new_tests_per_thousand':0},
+    {'country':0, 'new_deaths_per_million':0,'new_tests_per_thousand':0},
+    {'country':0, 'new_deaths_per_million':0,'new_tests_per_thousand':0},
+    {'country':0, 'new_deaths_per_million':0,'new_tests_per_thousand':0},
+    {'country':0, 'new_deaths_per_million':0,'new_tests_per_thousand':0},
+    {'country':0, 'new_deaths_per_million':0,'new_tests_per_thousand':0},
+    {'country':0, 'new_deaths_per_million':0,'new_tests_per_thousand':0},
+    {'country':0, 'new_deaths_per_million':0,'new_tests_per_thousand':0}
+  ]);
+  
+  useEffect(() => {
+    fetch("http://localhost:8000/oecdbycountry/Greece", {
+      method: "get",
+      
+    }).then((res) => res.json())
+    .then((res) => {
+      console.log("mainForm allData [json type]", res);
+      setData(res);
+      console.log("---------this is data[20] test----")
+      console.log(data[1])
+      console.log("--new_deaths_per_million--")
+      console.log(data[1].new_deaths_per_million)
 
+     
+    });
+}, []);
   return (
     <CCardGroup columns className = "cols-2" >
       
@@ -32,13 +62,12 @@ const Charts = () => {
               {
                 label: 'Data One',
                 backgroundColor: 'rgb(228,102,81,0.9)',
-                data: [30, 15,26]
-
+                data: [data[2].new_deaths_per_million,data[2].new_tests_per_thousand,data[2].positive_rate]
               },
               {
                 label: 'Data Two',
                 backgroundColor: 'rgb(0,216,255,0.9)',
-                data: [10,40,70]
+                data: [data[3].new_deaths_per_million,data[3].new_tests_per_thousand,data[3].positive_rate]
               }
             ]}
             options={{
@@ -69,7 +98,7 @@ const Charts = () => {
                 pointHoverBackgroundColor: '#fff',
                 pointHoverBorderColor: 'rgba(179,181,198,1)',
                 tooltipLabelColor: 'rgba(179,181,198,1)',
-                data: [65, 59, 90, 81, 56, 55, 40]
+                // data: [data[20].new_deaths_per_million,data[20].new_tests_per_thousand,data[20].positive_rate]
               },
               {
                 label: '2020',
@@ -80,7 +109,7 @@ const Charts = () => {
                 pointHoverBackgroundColor: '#fff',
                 pointHoverBorderColor: 'rgba(255,99,132,1)',
                 tooltipLabelColor: 'rgba(255,99,132,1)',
-                data: [28, 48, 40, 19, 96, 27, 100]
+                data: [28, 48, 40]
               }
             ]}
             options={{
