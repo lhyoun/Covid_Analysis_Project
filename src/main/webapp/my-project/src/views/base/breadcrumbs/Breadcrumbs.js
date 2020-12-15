@@ -24,7 +24,7 @@ const Breadcrumbs = () => {
   const inputHandle = (e) => setSearchData(e.target.value);
   
   const searchDatafunction = (data) => {	// 팀원 검색 함수 (검색 다음 초대)
-    alert(data + " 검색되었습니다");
+    alert("'" + data + "' 검색되었습니다");
     /*
 		fetch(`http://localhost:8000/nicknameDetail/${data}`, {
 			method: "get",
@@ -42,11 +42,12 @@ const Breadcrumbs = () => {
 				console.log("닉네임으로 검색 결과", res);
 				setSearchUser(res);
       });*/
+      setIsSearchData(1);
       setSearchData('');
 	}
 
   const [searchData, setSearchData] = React.useState('');
-  const [isSearchData, setIsSearchData] = React.useState(1);
+  const [isSearchData, setIsSearchData] = React.useState(0);
 
   const returnSearchDataResult = () =>{
     if(isSearchData===1){

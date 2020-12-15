@@ -26,7 +26,7 @@ const JumbotronMap = () => {
             <CCardBody>
               <CEmbed>
                 {/* <CEmbedItem src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"/> */}
-                <CEmbedItem src="covidmap.html"/>
+                <CEmbedItem src="map1.html"/>
               </CEmbed>
             </CCardBody>
           </CCard>

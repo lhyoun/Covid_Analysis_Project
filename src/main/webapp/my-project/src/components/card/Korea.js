@@ -1,4 +1,5 @@
 import { CBadge, CCard, CCardBody, CCardGroup, CCardHeader,
+    CLink,
     CCol,
     CDataTable,
     CDropdown,
@@ -6,7 +7,9 @@ import { CBadge, CCard, CCardBody, CCardGroup, CCardHeader,
     CDropdownMenu,
     CDropdownToggle,
     CDropdownDivider,
-    CRow } from '@coreui/react';
+    CRow, 
+    CTooltip,
+    CButton} from '@coreui/react';
 import React, { useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import {
@@ -55,9 +58,35 @@ const Korea = () => {
                 <CCardBody>
 
                     <CDropdown className="m-1">
-                        <CDropdownToggle color="secondary" size="sm">
-                            지역 선택
-                        </CDropdownToggle>
+
+                        {/* <CTooltip content="누적 확진자 수">
+                            <CLink> - </CLink>
+                        </CTooltip>  */}
+                        
+                        <CTooltip content="누적 확진자 수">
+                            <CLink> Confirmed/ </CLink>
+                        </CTooltip> 
+
+                        <CTooltip content="신규 확진자 수">
+                            <CLink> Total/ </CLink>
+                        </CTooltip> 
+
+                        <CTooltip content="10만명당 확진자 수">
+                            <CLink> Occur Rate/ </CLink>
+                        </CTooltip> 
+
+                        <CTooltip content="전날대비 증감">
+                            <CLink> Domestic </CLink>
+                        </CTooltip> 
+                        {/* <CTooltip
+                            content={'지역, 누적 확진자, 신규 확진자, 10만명당 확진자, 전날대비 증감'}
+                            placement='top'
+                        >
+                            <CButton color="secondary">
+                                용어설명
+                            </CButton>
+                        </CTooltip> */}
+                        <br/>
                         <CDropdownMenu>
                             {/* <CDropdownItem header>Header</CDropdownItem> */}
                             {/* <CDropdownItem disabled>Action Disabled</CDropdownItem> */}
@@ -91,15 +120,16 @@ const Korea = () => {
             <CCardGroup columns className = "cols-2" >
                 <CCard>
                     <CCardHeader>
-                        {/* 10만명당 */}
-                        인구대비 확진자
+                        <CTooltip content="10만명당 확진자 수">
+                            <CLink> 인구대비 확진자 </CLink>
+                         </CTooltip>
                     {/* <DocsLink href="#"/> */}
                     </CCardHeader>
                     <CCardBody>
                     <CChartBar
                         datasets={[
                         {
-                            label: '인구 10만명당 확진자',
+                            label: '지역별 확진자 수',
                             backgroundColor: '#f87979',
                             data: [data[0].occur_rate, data[2].occur_rate, data[3].occur_rate, 
                             data[4].occur_rate, data[5].occur_rate, data[6].occur_rate, data[7].occur_rate, 
@@ -122,14 +152,16 @@ const Korea = () => {
 
                 <CCard>
                     <CCardHeader>
-                        최근 추이
+                        <CTooltip content="전날대비 증감">
+                            <CLink> 최근 추이 </CLink>
+                        </CTooltip>
                     {/* <DocsLink href="#"/> */}
                     </CCardHeader>
                     <CCardBody>
                     <CChartBar
                         datasets={[
                         {
-                            label: '전일대비 증감',
+                            label: '지열별 확진자 수',
                             backgroundColor: '#f87979',
                             data: [data[0].domestic, data[2].domestic, data[3].domestic, 
                             data[4].domestic, data[5].domestic, data[6].domestic, data[7].domestic, 

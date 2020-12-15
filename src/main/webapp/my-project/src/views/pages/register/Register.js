@@ -1,6 +1,4 @@
-// 서버 retruen값 변경 등이 없으면 건드릴거 없음
 import React, { useState } from 'react';
-import { Container, Row, Col, Button, Form, Modal } from 'react-bootstrap';
 
 import {
   CButton,
@@ -18,15 +16,9 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
-const Register = () => {
-
-  const [show, setShow] = useState(false);
-	const handleClose = () => setShow(false);
-	const handleShow = () => setShow(true);
+const Register = (props) => {
 
 	let emptyFlag = true;				// 빈 칸 확인 플레그 true : 가입가능
-	let idCheckFlag = false;			// id 중복확인 플레그 true : 사용가능
-	let nicknameCheckFlag = false; 		// nickname 중복확인 플레그 true : 사용가능
   
   const [user, setUser] = useState({
 		username: "",
@@ -42,19 +34,6 @@ const Register = () => {
 			[e.target.name]: e.target.value,
 		});
 	};
-  
-  const idDuplicateCheck = (e) => {
-		e.preventDefault();
-		fetch(`http://localhost:8000/idCheck/${user.username}`, {
-			method: "GET",
-		}).then(res => res.text())
-			.then(res => {
-				if (res === "ok") {
-					idCheckFlag = true;
-					alert("사용 가능한 아이디  입니다");
-				} else alert("중복 아이디 입니다");
-			});
-	}
 
 	const joinRequest = (e) => {
 		e.preventDefault();
@@ -93,12 +72,10 @@ const Register = () => {
 				else return "회원가입 실패하였습니다.";
 			}).then(res => {
 				alert(res);   // 로그인의 결과
-				handleClose();
+				props.history.push("/");
 			});
 		} else {
 			if (!emptyFlag) alert("모든 정보 입력해주세요");
-			if (!idCheckFlag) alert("id중복확인 해주세요");
-			if (!nicknameCheckFlag) alert("nickname 중복확인 해주세요");
     }
   }
   
@@ -112,51 +89,58 @@ const Register = () => {
                 <CForm>
                   <h1>Register</h1>
                   <p className="text-muted">Create your account</p>
+
                   <CInputGroup className="mb-3">
                     <CInputGroupPrepend>
                       <CInputGroupText>
                         <CIcon name="cil-user" />
                       </CInputGroupText>
                     </CInputGroupPrepend>
-                    <CInput type="text"
-									name="name"
-									placeholder="이름"
-									onChange={inputHandle}
-									value={user.name}/>
+					<CInput 
+						type="text"
+						name="name"
+						placeholder="이름"
+						onChange={inputHandle}
+						value={user.name}/>
                   </CInputGroup>
+
                   <CInputGroup className="mb-3">
                     <CInputGroupPrepend>
-                   
                       <CInputGroupText>@</CInputGroupText>
                     </CInputGroupPrepend>
-                    <CInput 	name="email"
-									placeholder="이메일"
-									onChange={inputHandle}
-									value={user.email}/>
+					<CInput 	
+						name="email"
+						placeholder="이메일"
+						onChange={inputHandle}
+						value={user.email}/>
                   </CInputGroup>
+
                   <CInputGroup className="mb-3">
                     <CInputGroupPrepend>
                       <CInputGroupText>
                         <CIcon name="cil-user" />
                       </CInputGroupText>
                     </CInputGroupPrepend>
-                    <CInput type="text"
-											name="username"
-											placeholder="아이디"
-											onChange={inputHandle}
-											value={user.username} />
+					<CInput 
+						type="text"
+						name="username"
+						placeholder="아이디"
+						onChange={inputHandle}
+						value={user.username} />
                   </CInputGroup>
+
                   <CInputGroup className="mb-3">
                     <CInputGroupPrepend>
                       <CInputGroupText>
                         <CIcon name="cil-lock-locked" />
                       </CInputGroupText>
                     </CInputGroupPrepend>
-                    <CInput type="password"
-									name="password"
-									placeholder="비밀번호"
-									onChange={inputHandle}
-									value={user.password} />
+					<CInput 
+						type="password"
+						name="password"
+						placeholder="비밀번호"
+						onChange={inputHandle}
+						value={user.password} />
                   </CInputGroup>
                
                   <CButton color="success" block onClick={joinRequest}>Create Account</CButton>

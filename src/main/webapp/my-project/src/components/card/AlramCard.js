@@ -29,6 +29,10 @@ const AlramCard = () => {
                         {/* <CDropdownItem header>Header</CDropdownItem> */}
                         {/* <CDropdownItem disabled>Action Disabled</CDropdownItem> */}
                         <CDropdownItem>부산</CDropdownItem>
+                        <CDropdownItem>서울</CDropdownItem>
+                        <CDropdownItem>광주</CDropdownItem>
+                        <CDropdownItem>대구</CDropdownItem>
+                        <CDropdownItem>울산</CDropdownItem>
                         {/* <CDropdownDivider />
                         <CDropdownItem>Another Action</CDropdownItem> */}
                     </CDropdownMenu>

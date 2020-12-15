@@ -18,7 +18,7 @@ import {
 import CIcon from '@coreui/icons-react'
 
 const Login = (props) => {
-  const setToken = props.setToken;
+  //const setToken = props.setToken;
 
 
 	const [user, setUser] = useState({
@@ -56,14 +56,14 @@ const Login = (props) => {
           console.log(data,"-------data------")
 					//data = data.substring(7);
 					localStorage.setItem("Authorization", data);
-					setToken();
+					//setToken();
 				}
 			}
 			return res.text();
 		}).then(
 			res => {
 				alert(res);
-				if (res === "ok") handleClose();
+				if (res === "ok") props.history.push("/");
 			});
 	}
   return (

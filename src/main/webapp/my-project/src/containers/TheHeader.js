@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { lazy, useEffect, useState }from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   CHeader,
@@ -23,7 +23,27 @@ import {
   TheHeaderDropdownTasks
 }  from './index'
 
+const tokenCheck = () => {
+  console.log("App.js:: display Authorization - 로그인 여부 확인을 위한 token check", localStorage.getItem("Authorization"));
+  if (localStorage.getItem("Authorization") != null) return true;
+  else return false;
+}
+
 const TheHeader = () => {
+
+    // 토큰이 있다(1) or 없다(0) => 있다 = 로그인 o, 없다 = 로그인 x 
+    const [isToken, setIsToken] = useState(tokenCheck());
+    // 로그인 하면 실행할거야. 0->1로 바꿔주는 함수. 
+    const setToken = () => {
+      if (isToken) setIsToken(0);  // 1이면 0으로 바꾸고
+      else setIsToken(1);         // 0이면 1로 바꾸고
+    }
+  
+    useEffect(() => {
+      
+    }, []);
+
+
   const dispatch = useDispatch()
   const sidebarShow = useSelector(state => state.sidebarShow)
 
@@ -37,6 +57,48 @@ const TheHeader = () => {
     dispatch({type: 'set', sidebarShow: val})
   }
 
+  const logoutfunction = () => {
+    localStorage.removeItem("Authorization");
+
+    // logout fetch 
+    fetch(`http://localhost:8000/logout`, {
+      method: "GET",
+      headers: {
+      }
+    }).then(res => res.text())
+      .then(res => {
+        if (res === "ok") {
+          setToken();
+          alert("로그아웃에 성공하였습니다");
+        } else {
+          alert("로그아웃 실패");
+        }
+      });
+  }
+
+
+  const loginTag = (flag) =>{
+    if(flag){
+      return <>
+        <CHeaderNavItem  className="px-3">
+          <CHeaderNavLink onClick={logoutfunction}>로그아웃</CHeaderNavLink>
+        </CHeaderNavItem>
+        <TheHeaderDropdownNotif/>
+        <TheHeaderDropdownTasks/>
+        <TheHeaderDropdownMssg/>
+      </>
+    }else{
+      return<>
+      <CHeaderNavItem  className="px-3">
+          <CHeaderNavLink to="/login">로그인</CHeaderNavLink>
+        </CHeaderNavItem>
+
+        <CHeaderNavItem  className="px-3">
+          <CHeaderNavLink to="/register">회원가입</CHeaderNavLink>
+        </CHeaderNavItem>
+      </>
+    }
+  }
   return (
     <CHeader withSubheader>
       <CToggler
@@ -67,17 +129,9 @@ const TheHeader = () => {
 
       {/* 우측 상단 알림 */}
       <CHeaderNav className="px-3">
-        <CHeaderNavItem  className="px-3">
-          <CHeaderNavLink to="/login">로그인</CHeaderNavLink>
-        </CHeaderNavItem>
+        
+        {loginTag(isToken)}
 
-        <CHeaderNavItem  className="px-3">
-          <CHeaderNavLink to="/register">회원가입</CHeaderNavLink>
-        </CHeaderNavItem>
-
-        <TheHeaderDropdownNotif/>
-        <TheHeaderDropdownTasks/>
-        <TheHeaderDropdownMssg/>
         {/* <TheHeaderDropdown/> */}
       </CHeaderNav>
       

@@ -6,7 +6,9 @@ import { CBadge, CCard, CCardBody, CCardGroup, CCardHeader,
     CDropdownMenu,
     CDropdownToggle,
     CDropdownDivider,
-    CRow } from '@coreui/react';
+    CRow, 
+    CTooltip,
+    CLink} from '@coreui/react';
 import React, { useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import {
@@ -74,10 +76,30 @@ const Route_Busan = () => {
                         <CDropdownToggle color="secondary" size="sm">
                             지역 선택
                         </CDropdownToggle>
+                        <br/>
+                        <CTooltip content="시,구,군">
+                            <CLink> District/ </CLink>
+                        </CTooltip> 
+
+                        <CTooltip content="장소 이름">
+                            <CLink> Location Name/ </CLink>
+                        </CTooltip> 
+
+                        <CTooltip content="방문시간">
+                            <CLink> Exposed Time/ </CLink>
+                        </CTooltip> 
+
+                        <CTooltip content="소독 여부">
+                            <CLink> Sanitized </CLink>
+                        </CTooltip> 
                         <CDropdownMenu>
                             {/* <CDropdownItem header>Header</CDropdownItem> */}
                             {/* <CDropdownItem disabled>Action Disabled</CDropdownItem> */}
                             <CDropdownItem>부산</CDropdownItem>
+                            <CDropdownItem>서울</CDropdownItem>
+                            <CDropdownItem>광주</CDropdownItem>
+                            <CDropdownItem>대구</CDropdownItem>
+                            <CDropdownItem>울산</CDropdownItem>
                             {/* <CDropdownDivider />
                             <CDropdownItem>Another Action</CDropdownItem> */}
                         </CDropdownMenu>
@@ -107,7 +129,9 @@ const Route_Busan = () => {
                 <Col md={6}>
                     <CCard>
                         <CCardHeader>
-                            장소
+                            <CTooltip content="확진자가 많이 발생하는 장소">
+                                <CLink> 장소 </CLink>
+                            </CTooltip> 
                         </CCardHeader>
                         <CCardBody>
                         <CChartPie
@@ -136,7 +160,9 @@ const Route_Busan = () => {
                 <Col md={6}>
                     <CCard>
                         <CCardHeader>
-                            시도군
+                            <CTooltip content="확진자가 많이 발생하는 지역">
+                                <CLink> 시,도,군 </CLink>
+                            </CTooltip> 
                         </CCardHeader>
                         <CCardBody>
                         <CChartPie

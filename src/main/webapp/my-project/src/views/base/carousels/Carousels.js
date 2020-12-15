@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {
+  CButton,
   CCard,
   CCardBody,
   CCardHeader,
@@ -24,92 +25,16 @@ const Carousels = () => {
   const [activeIndex] = useState(1)
 
   return (
+ 
     <CRow>
-      <CCol xs="12" xl="6">
-        <CCard>
-          <CCardHeader>
-            Carousel with controls
-            <DocsLink name="CCarousel"/>
-          </CCardHeader>
-          <CCardBody>
-            <CCarousel>
-              <CCarouselInner>
-                <CCarouselItem>
-                  <img className="d-block w-100" src={slides[0]} alt="slide 1"/>
-                </CCarouselItem>
-                <CCarouselItem>
-                  <img className="d-block w-100" src={slides[1]} alt="slide 2"/>
-                </CCarouselItem>
-                <CCarouselItem>
-                  <img className="d-block w-100" src={slides[2]} alt="slide 3"/>
-                </CCarouselItem>
-              </CCarouselInner>
-              <CCarouselControl direction="prev"/>
-              <CCarouselControl direction="next"/>
-            </CCarousel>
-          </CCardBody>
-        </CCard>
+
+      <CCol xs="1" xl="1">
       </CCol>
-      <CCol xs="12" xl="6">
+
+      <CCol xs="10" xl="10">
         <CCard>
           <CCardHeader>
-            Carousel with controls, indicators and caption
-          </CCardHeader>
-          <CCardBody>
-            <CCarousel activeIndex={activeIndex}>
-              <CCarouselIndicators/>
-              <CCarouselInner>
-                <CCarouselItem>
-                  <img className="d-block w-100" src={slides[0]} alt="slide 1"/>
-                  <CCarouselCaption><h3>Slide 1</h3><p>Slide 1</p></CCarouselCaption>
-                </CCarouselItem>
-                <CCarouselItem>
-                  <img className="d-block w-100" src={slides[1]} alt="slide 2"/>
-                  <CCarouselCaption><h3>Slide 2</h3><p>Slide 2</p></CCarouselCaption>
-                </CCarouselItem>
-                <CCarouselItem>
-                  <img className="d-block w-100" src={slides[2]} alt="slide 3"/>
-                  <CCarouselCaption><h3>Slide 3</h3><p>Slide 3</p></CCarouselCaption>
-                </CCarouselItem>
-              </CCarouselInner>
-              <CCarouselControl direction="prev"/>
-              <CCarouselControl direction="next"/>
-            </CCarousel>
-          </CCardBody>
-        </CCard>
-      </CCol>
-      <CCol xs="12" xl="6">
-        <CCard>
-          <CCardHeader>
-            Carousel animation
-          </CCardHeader>
-          <CCardBody>
-            <CCarousel animate>
-              <CCarouselIndicators/>
-              <CCarouselInner>
-                <CCarouselItem>
-                  <img className="d-block w-100" src={slides[0]} alt="slide 1"/>
-                  <CCarouselCaption><h3>Slide 1</h3><p>Slide 1</p></CCarouselCaption>
-                </CCarouselItem>
-                <CCarouselItem>
-                  <img className="d-block w-100" src={slides[1]} alt="slide 2"/>
-                  <CCarouselCaption><h3>Slide 2</h3><p>Slide 2</p></CCarouselCaption>
-                </CCarouselItem>
-                <CCarouselItem>
-                  <img className="d-block w-100" src={slides[2]} alt="slide 3"/>
-                  <CCarouselCaption><h3>Slide 3</h3><p>Slide 3</p></CCarouselCaption>
-                </CCarouselItem>
-              </CCarouselInner>
-              <CCarouselControl direction="prev"/>
-              <CCarouselControl direction="next"/>
-            </CCarousel>
-          </CCardBody>
-        </CCard>
-      </CCol>
-      <CCol xs="12" xl="6">
-        <CCard>
-          <CCardHeader>
-            Carousel animation with autoSlide
+            로그인 후 다양한 혜택을 누려보세요
           </CCardHeader>
           <CCardBody>
             <CCarousel animate autoSlide={3000}>
@@ -117,15 +42,15 @@ const Carousels = () => {
               <CCarouselInner>
                 <CCarouselItem>
                   <img className="d-block w-100" src={slides[0]} alt="slide 1"/>
-                  <CCarouselCaption><h3>Slide 1</h3><p>Slide 1</p></CCarouselCaption>
+                  <CCarouselCaption><h3>맞춤 재난문자</h3><p>필요한 정보만 받아보세요</p></CCarouselCaption>
                 </CCarouselItem>
                 <CCarouselItem>
                   <img className="d-block w-100" src={slides[1]} alt="slide 2"/>
-                  <CCarouselCaption><h3>Slide 2</h3><p>Slide 2</p></CCarouselCaption>
+                  <CCarouselCaption><h3>Service 2</h3><p>Service 2</p></CCarouselCaption>
                 </CCarouselItem>
                 <CCarouselItem>
                   <img className="d-block w-100" src={slides[2]} alt="slide 3"/>
-                  <CCarouselCaption><h3>Slide 3</h3><p>Slide 3</p></CCarouselCaption>
+                  <CCarouselCaption><h3>Service 3</h3><p>Service 3</p></CCarouselCaption>
                 </CCarouselItem>
               </CCarouselInner>
               <CCarouselControl direction="prev"/>
@@ -134,6 +59,20 @@ const Carousels = () => {
           </CCardBody>
         </CCard>
       </CCol>
+
+      <CCol xs="1" xl="1">
+      </CCol>
+
+      <CCol xs="2" xl="2">
+      </CCol>
+
+      <CCol xs="8" xl="8">
+        <CButton color="secondary" size="lg" block>로 그 인</CButton>
+      </CCol>
+
+      <CCol xs="2" xl="2">
+      </CCol>
+
     </CRow>
   )
 }
