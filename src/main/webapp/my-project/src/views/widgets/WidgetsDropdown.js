@@ -11,6 +11,7 @@ import {
 import CIcon from '@coreui/icons-react'
 import ChartLineSimple from '../charts/ChartLineSimple'
 import ChartBarSimple from '../charts/ChartBarSimple'
+import Jumbotrons from '../base/jumbotrons/Jumbotrons'
 
 const WidgetsDropdown = () => {
   // render
@@ -36,6 +37,7 @@ const WidgetsDropdown = () => {
 
   return (
     <CRow>
+      <CCol sm="12"><Jumbotrons/></CCol>
       <CCol sm="6" lg="4">
         <CWidgetDropdown
           color="warning"
